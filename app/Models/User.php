@@ -44,4 +44,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    /**
+     * region_tb_support
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function region_tb_support()
+    {
+        return $this->hasOne(Region::class, 'region_tb_support');
+    }
+
+    /**
+     * operation
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function operation()
+    {
+        return $this->belongsToMany(Operation::class, 'operation_volunteers', 'volunteer', 'operation');
+    }
 }
