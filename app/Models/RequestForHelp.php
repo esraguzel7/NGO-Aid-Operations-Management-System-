@@ -14,7 +14,7 @@ class RequestForHelp extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function indigent_people()
+    public function family()
     {
         return $this->hasOne(IndigentPeoples::class);
     }
@@ -36,6 +36,6 @@ class RequestForHelp extends Model
      */
     public function support_type()
     {
-        return $this->hasOne(SupportTypes::class);
+        return $this->hasOne(SupportTypes::class, 'id', 'type_of_support');
     }
 }
